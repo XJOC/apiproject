@@ -7,6 +7,9 @@ use Illuminate\Support\Facades\Hash;
 
 class AuthController extends Controller
 {
+    public function __construct(){
+        request()->headers->set("Accept","application/json");
+    }
     public function register(Request $request) {
         $data = $request->validate([
             'name' => ['required', 'string'],
